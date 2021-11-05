@@ -1,0 +1,6 @@
+db
+frontend/dist
+api/bin
+api/obj
+node_modules
+.vscode/

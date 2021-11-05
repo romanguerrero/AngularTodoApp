@@ -1,0 +1,37 @@
+<mat-card class="item">
+  <mat-checkbox ([checked])="(todo.done)" (click)="done()"></mat-checkbox>
+  <div class="content" *ngIf="!editing">
+    <span class="title">{{ todo.title }}</span>
+    <button
+      (click)="toggleEdit()"
+      mat-icon-button
+      aria-label="Pencil icon to edit todo"
+    >
+      <mat-icon>mode</mat-icon>
+    </button>
+  </div>
+  <div class="content editing" *ngIf="editing">
+    <mat-form-field class="title" color="primary" floatLabel="">
+      <input
+        type="text"
+        placeholder=""
+        aria-label="Number"
+        matInput
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="_title"
+      />
+    </mat-form-field>
+    <button
+      (click)="update({ title: _title })"
+      mat-icon-button
+      aria-label="Submit"
+    >
+      <mat-icon>done</mat-icon>
+    </button>
+  </div>
+  <div class="actions">
+    <button mat-icon-button (click)="delete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</mat-card>

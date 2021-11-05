@@ -1,0 +1,6 @@
+# Dockerfile-db
+
+FROM mariadb:10
+
+# Copy database initialisation scripts
+COPY init.sql /docker-entrypoint-initdb.d/
